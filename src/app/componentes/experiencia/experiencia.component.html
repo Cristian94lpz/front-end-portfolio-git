@@ -1,0 +1,90 @@
+<section class="experiencia">
+    <aside class="columna-vacia"></aside>
+    <div class="cuerpo-exp">
+
+        <span class="cruz" appEditnegro *ngIf="ruta == rutaActual"><i class="fa-regular fa-pen-to-square" (click)="activar()" ></i></span>
+    <img class="decorador-linea" src='assets\img\decoracion\linea.png'><span class="texto-exp">EXPERIENCIA</span>
+    <div class="fila-vacia"></div>
+
+    <div class="content-trabajo" *ngFor="let experiencia of experiencias">
+        <div class="logo-empresa"><img [src]="experiencia.fotourl"></div>
+        <div class="datos-trabajo">
+            <span class="puesto">{{experiencia.puesto}}</span>
+            <span class="empresa-jornada">{{experiencia.empresa}}</span>
+            <span class="tiempo-inicio-fin">{{experiencia.inicio}} - {{experiencia.fin}}</span>
+        </div>
+    </div>
+  
+    
+    <div class="fila-vacia"></div>
+    </div>
+    <aside class="columna-vacia"></aside>
+</section> 
+
+<div class="ventana-edit" *ngIf="estado" >
+    <div class="content-edit">
+        <i class="fa-solid fa-xmark" (click)="desactivar()" appPuntero></i>
+        
+        <div  *ngFor="let experiencia of experiencias" >
+            
+                <div class="content-flex-cursos" *ngIf="onEdit && mostrar0 ==false">
+                    <div class="content-cursos-edit" >
+                        <span class="nombre-empresa-edit">Nombre Empresa: <span>{{experiencia.empresa}}</span></span>
+                        <span class="puesto-edit">Puesto: <span>{{experiencia.puesto}}</span></span>
+                    </div>
+                    <div class="content-btn-edit">
+                        <button (click)="btnEdit(experiencia.id)" class="btn btn-dark">Editar</button>
+                        <button (click)="borrarExperiencia(experiencia.id)" class="btn btn-dark">Borrar</button>
+                    </div>
+                </div>
+            
+                <div class="content-flex-cursos" *ngIf="experiencia.id == onForm">
+                    <form (ngSubmit)="btnUpdate($event,experiencia.id)" novalidate class="form-curso-edit">
+                        <label for="empresa">Nombre de la empresa:</label>
+                        <input type="text" name="empresa" [(ngModel)]="experiencia0.empresa" id="empresa">
+                        <label for="puesto">Puesto:</label>
+                        <input type="text" name="puesto" [(ngModel)]="experiencia0.puesto" id="puesto">
+                        <label for="inicio">Año inicio:</label>
+                        <input type="text" name="inicio" [(ngModel)]="experiencia0.inicio" id="inicio">
+                        <label for="fin">Año fin:</label>
+                        <input type="text" name="fin" [(ngModel)]="experiencia0.fin" id="fin">
+                        
+                        <div class="content-btn-costado">
+                        <button type="submit" class="btn btn-dark">Actualizar</button>
+                        </div>
+                    </form>
+                </div>
+            
+        </div>
+        
+        
+            <div class="content-crear" *ngIf="mostrar0 == false && onEdit==true">
+                <span class="span-anadir">Añadir experiencia</span>
+        
+                <div class="btn-crear">
+                    <i class="fa-regular fa-square-plus" (click)="mostrar()" appPuntero></i>
+                </div>
+            </div>
+
+            <div class="content-crear" *ngIf="mostrar0 && onEdit==true">
+                <form (ngSubmit)="crearExperiencia()" novalidate class="form-curso-edit">
+                    <label for="empresa">Nombre de la empresa:</label>
+                    <input type="text" name="empresa" [(ngModel)]="empresa" id="empresa">
+                    <label for="puesto">Puesto:</label>
+                    <input type="text" name="puesto" [(ngModel)]="puesto" id="puesto">
+                    <label for="inicio">Año inicio:</label>
+                    <input type="text" name="inicio" [(ngModel)]="inicio" id="inicio">
+                    <label for="fin">Año fin:</label>
+                    <input type="text" name="fin" [(ngModel)]="fin" id="fin">
+                    
+                    <div class="content-btn-costado">
+                    <button type="submit" class="btn btn-dark">Añadir experiencia</button>
+                    </div>
+                </form>
+            </div>
+
+        
+
+
+    </div>
+</div>

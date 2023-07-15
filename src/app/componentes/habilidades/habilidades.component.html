@@ -1,0 +1,187 @@
+<section class="skills">
+    <aside class="columna-vacia"></aside>
+    <div class="cuerpo-skills">
+        <span class="cruz" appEditnegro *ngIf="ruta == rutaActual" ><i class="fa-regular fa-pen-to-square" (click)="activar()"  ></i></span>
+        <img class="decorador-linea" src='\assets\img\decoracion\linea.png'><span class="texto-hab">HABILIDADES</span>
+        <div class="fila-vacia"></div>
+        <div class="titulos-hab">
+            <span class="titulo-duras">HABILIDADES DURAS</span>
+            <span class="titulo-blandas">HABILIDADES BLANDAS</span>
+        </div>
+        <div class="fila-vacia"></div>
+
+        <div class="hab-content">
+
+            <div class="hab-duras">   
+                <img [src]="habilidadesDuras.angular" *ngIf="boolDuras.angular == 'true'">
+                <img [src]="habilidadesDuras.visual_studio" *ngIf="boolDuras.visual_studio =='true'" >
+                <img [src]="habilidadesDuras.consola_npm" *ngIf="boolDuras.consola_npm == 'true'" >
+                <img [src]="habilidadesDuras.mysql" *ngIf="boolDuras.mysql== 'true'" >
+                <img [src]="habilidadesDuras.sql0" *ngIf="boolDuras.sql0== 'true'" >
+                <img [src]="habilidadesDuras.php" *ngIf="boolDuras.php == 'true'" >
+                <img [src]="habilidadesDuras.phpmyadmin" *ngIf="boolDuras.phpmyadmin == 'true'" >
+                <img [src]="habilidadesDuras.html" *ngIf="boolDuras.html == 'true'" >
+                <img [src]="habilidadesDuras.css" *ngIf="boolDuras.css == 'true'" >
+                <img [src]="habilidadesDuras.javascript" *ngIf="boolDuras.javascript =='true'" >
+                <img [src]="habilidadesDuras.typescript" *ngIf="boolDuras.typescript == 'true'" >
+                <img [src]="habilidadesDuras.git" *ngIf="boolDuras.git == 'true'" >
+                <img [src]="habilidadesDuras.adobe_photoshop" *ngIf="boolDuras.adobe_photoshop == 'true'" >
+                
+
+    
+            </div>
+            <div class="hab-blandas">
+                <img [src]="habilidadesBlandas.trabajo_equipo" *ngIf="boolBlandas.trabajo_equipo == 'true'">
+                <img [src]="habilidadesBlandas.pensamiento_critico" *ngIf="boolBlandas.pensamiento_critico == 'true'">
+                <img [src]="habilidadesBlandas.comunicacion_asertiva" *ngIf="boolBlandas.comunicacion_asertiva == 'true'">
+                <img [src]="habilidadesBlandas.escucha_activa" *ngIf="boolBlandas.escucha_activa == 'true'">
+                <img [src]="habilidadesBlandas.adaptacion_cambio" *ngIf="boolBlandas.adaptacion_cambio == 'true'">
+                <img [src]="habilidadesBlandas.creatividad" *ngIf="boolBlandas.creatividad == 'true'">
+                <img [src]="habilidadesBlandas.respeto_opiniones" *ngIf="boolBlandas.respeto_opiniones == 'true'"> 
+                
+              
+
+            </div>
+        </div>
+        <div class="fila-vacia"></div>
+    </div>
+    <aside class="columna-vacia"></aside>
+</section>
+
+<div class="ventana-edit" *ngIf="estado" >
+    <div class="content-edit">
+        <i class="fa-solid fa-xmark" (click)="desactivar()" appPuntero></i>
+
+        <div class="content-hab-edit">
+            <div class="hab-blandas-opc">
+                    <span class="span-hab-blanda">HABILIDADES BLANDAS</span><br>
+                    <div class="content-hab-opc-edit" >
+                    Trabajo en equipo 
+                    </div>
+                    <div class="content-btn-hab-edit">
+                    <button name="" type="text" (click)="verBlanda(1)" class="btn btn-dark"> Añadir</button><button name="" type="text" (click)="noverBlanda(1)" class="btn btn-dark">Quitar</button><br>
+                    </div>
+                    <div class="content-hab-opc-edit" >
+                    Pensamiento critico 
+                    </div>
+                    <div class="content-btn-hab-edit">
+                    <button name="" type="text" (click)="verBlanda(2)" class="btn btn-dark">Añadir</button><button name="" type="text" (click)="noverBlanda(2)" class="btn btn-dark">Quitar</button><br>
+                    </div>
+                    <div class="content-hab-opc-edit" >
+                    Comunicacion asertiva 
+                    </div>
+                    <div class="content-btn-hab-edit">
+                    <button name="" type="text" (click)="verBlanda(3)" class="btn btn-dark">Añadir</button><button name="" type="text" (click)="noverBlanda(3)" class="btn btn-dark">Quitar</button><br>
+                    </div>
+                    <div class="content-hab-opc-edit" >
+                    Escucha activa 
+                    </div>
+                    <div class="content-btn-hab-edit">
+                    <button name="" type="text" (click)="verBlanda(4)" class="btn btn-dark">Añadir</button><button name="" type="text" (click)="noverBlanda(4)" class="btn btn-dark">Quitar</button><br>
+                    </div>
+                    <div class="content-hab-opc-edit" >
+                    Adaptacion al cambio  
+                    </div>
+                    <div class="content-btn-hab-edit">
+                    <button name="" type="text" (click)="verBlanda(5)" class="btn btn-dark">Añadir</button><button name="" type="text" (click)="noverBlanda(5)" class="btn btn-dark">Quitar</button><br>
+                    </div>
+                    <div class="content-hab-opc-edit" >
+                    Creatividad 
+                    </div>
+                    <div class="content-btn-hab-edit">
+                    <button name="" type="text" (click)="verBlanda(6)" class="btn btn-dark">Añadir</button><button name="" type="text" (click)="noverBlanda(6)" class="btn btn-dark">Quitar</button><br>
+                    </div>
+                    <div class="content-hab-opc-edit" >
+                    Respeto a las opiniones 
+                    </div>
+                    <div class="content-btn-hab-edit">
+                    <button name="" type="text" (click)="verBlanda(7)" class="btn btn-dark">Añadir</button><button name="" type="text" (click)="noverBlanda(7)" class="btn btn-dark">Quitar</button><br>
+                    </div>
+            </div>
+
+            <div class="hab-duras-opc">
+                <span class="span-hab-blanda">HABILIDADES DURAS</span><br>
+                <div class="content-hab-opc-edit" >
+                Angular 
+                </div>
+                <div class="content-btn-hab-edit">
+                <button name="" type="text" (click)="verDura(1)" class="btn btn-dark"> Añadir</button><button name="" type="text" (click)="noverDura(1)" class="btn btn-dark">Quitar</button><br>
+                </div>
+                <div class="content-hab-opc-edit" >
+                Visual Studio
+                </div> 
+                <div class="content-btn-hab-edit">
+                <button name="" type="text" (click)="verDura(2)" class="btn btn-dark"> Añadir</button><button name="" type="text" (click)="noverDura(2)" class="btn btn-dark">Quitar</button><br>
+                </div>
+                <div class="content-hab-opc-edit" >
+                Consola npm 
+                </div>
+                <div class="content-btn-hab-edit">
+                <button name="" type="text" (click)="verDura(3)" class="btn btn-dark"> Añadir</button><button name="" type="text" (click)="noverDura(3)" class="btn btn-dark">Quitar</button><br>
+                </div>
+                <div class="content-hab-opc-edit" >
+                MySQL 
+                </div>
+                <div class="content-btn-hab-edit">
+                <button name="" type="text" (click)="verDura(4)" class="btn btn-dark"> Añadir</button><button name="" type="text" (click)="noverDura(4)" class="btn btn-dark">Quitar</button><br>
+                </div>
+                <div class="content-hab-opc-edit" >
+                Sql  
+                </div>
+                <div class="content-btn-hab-edit">
+                <button name="" type="text" (click)="verDura(5)" class="btn btn-dark"> Añadir</button><button name="" type="text" (click)="noverDura(5)" class="btn btn-dark">Quitar</button><br>
+                </div> 
+                <div class="content-hab-opc-edit" >
+                Php 
+                </div>
+                <div class="content-btn-hab-edit">
+                <button name="" type="text" (click)="verDura(6)" class="btn btn-dark"> Añadir</button><button name="" type="text" (click)="noverDura(6)" class="btn btn-dark">Quitar</button><br>
+                </div>
+                <div class="content-hab-opc-edit" >
+                phpMyAdmin 
+                </div>
+                <div class="content-btn-hab-edit">
+                <button name="" type="text" (click)="verDura(7)" class="btn btn-dark"> Añadir</button><button name="" type="text" (click)="noverDura(7)" class="btn btn-dark">Quitar</button><br>
+                </div>
+                <div class="content-hab-opc-edit" >
+                Html 
+                </div>
+                <div class="content-btn-hab-edit">
+                <button name="" type="text" (click)="verDura(8)" class="btn btn-dark"> Añadir</button><button name="" type="text" (click)="noverDura(8)" class="btn btn-dark">Quitar</button><br>
+                </div>
+                <div class="content-hab-opc-edit" >
+                Css
+                </div>
+                <div class="content-btn-hab-edit">
+                <button name="" type="text" (click)="verDura(9)" class="btn btn-dark"> Añadir</button><button name="" type="text" (click)="noverDura(9)" class="btn btn-dark">Quitar</button><br>
+                </div>
+                <div class="content-hab-opc-edit" >
+                Javascript 
+                </div>
+                <div class="content-btn-hab-edit">
+                <button name="" type="text" (click)="verDura(10)" class="btn btn-dark"> Añadir</button><button name="" type="text" (click)="noverDura(10)" class="btn btn-dark">Quitar</button><br>
+                </div>
+                <div class="content-hab-opc-edit" >
+                Typescript 
+                </div>
+                <div class="content-btn-hab-edit">
+                <button name="" type="text" (click)="verDura(11)" class="btn btn-dark"> Añadir</button><button name="" type="text" (click)="noverDura(11)" class="btn btn-dark">Quitar</button><br>
+                </div>
+                <div class="content-hab-opc-edit" >
+                Git
+                </div>  
+                <div class="content-btn-hab-edit">
+                <button name="" type="text" (click)="verDura(12)" class="btn btn-dark"> Añadir</button><button name="" type="text" (click)="noverDura(12)" class="btn btn-dark">Quitar</button><br>
+                </div>
+                <div class="content-hab-opc-edit" >
+                Adobe Photoshop 
+                </div>
+                <div class="content-btn-hab-edit">
+                <button name="" type="text" (click)="verDura(13)" class="btn btn-dark"> Añadir</button><button name="" type="text" (click)="noverDura(13)" class="btn btn-dark">Quitar</button><br>
+                 </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>

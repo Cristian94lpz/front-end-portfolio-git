@@ -1,0 +1,26 @@
+<header>
+    <nav class="estatico" id="menu">
+    <nav class="barra-principal">
+        <ul class="lado-izq">
+            <li class="img-logo"><img src='\assets\img\logo\ArgPrograma-logo.png'></li>
+            <li class="texto-arg">#YoProgramo</li>
+        </ul>
+        <ul class="lado-der">
+            <li class="red-social"><i class="fab fa-whatsapp" id="whatsapp"></i><span class="num">+(54)-261-3355190</span></li>
+            <li class="login" (click)="logear()" *ngIf="ruta == 'portfolio'">Ingresar</li>
+            <li class="login" routerLink="/portfolio" *ngIf="ruta == rutaActual">Cerrar Sesion</li>
+        </ul>
+    </nav>
+    <nav class="barra-navegacion">
+        <ul class="menu-navegacion">
+            <li></li>
+            <li><a id="ancla-acerca">Acerca de mi</a></li>
+            <li><a id="ancla-exp">Experiencia</a></li>
+            <li><a id="ancla-edu">Educacion</a></li>
+            <li><a id="ancla-hab">Habilidades</a></li>
+            <li><a id="ancla-proyecto">Proyectos</a></li>
+            <li></li>
+        </ul>
+    </nav>
+    </nav>
+</header>

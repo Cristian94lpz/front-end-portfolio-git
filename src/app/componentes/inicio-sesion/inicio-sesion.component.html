@@ -1,0 +1,37 @@
+<div class="fondo-login">
+
+  <div class="content-form-login">
+    <form [formGroup]="form" (ngSubmit)="verificar($event)" class="form-login">
+      <div class="content-input-login">
+        <label class="label-login" for="nombre">Usuario:</label>
+        <div class="content-input">
+             <input type="text" name="nombre" formControlName="nombre" class="form-control" [ngClass]="{'is-invalid' : Nombre?.errors && Nombre?.touched, 'is-valid' : !Nombre?.errors && Nombre?.touched}">
+        </div>
+        <div *ngIf="Nombre?.errors && Nombre?.touched">
+            <p *ngIf="Nombre?.hasError('required')" class="text-danger">
+              Es un campo requerido
+            </p>
+        </div>
+      </div>
+
+      <div class="content-input-login">
+        <label class="label-login" for="password">Contraseña:</label>
+        <div class="content-input">
+            <input type="text" name="password" formControlName="password" class="form-control"  [ngClass]="{'is-invalid' : Password?.errors && Password?.touched, 'is-valid' : !Password?.errors && Password?.touched}">
+        </div>
+        <div *ngIf="Password?.errors && Password?.touched">
+            <p *ngIf="Password?.hasError('required')" class="text-danger">
+              Es un campo requerido
+            </p>
+        </div>
+      </div>
+
+      <div class="content-btn-login">
+      <button type="submit" [disabled]="form.invalid" class="btn btn-dark">Verificar</button>
+      </div>
+
+    </form>
+  </div>
+
+
+</div>

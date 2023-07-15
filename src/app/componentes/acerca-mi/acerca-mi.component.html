@@ -1,0 +1,43 @@
+<section class="acerca-de">
+   
+    <aside class="columna-vacia"></aside>
+    <div class="cuerpo-acerca">
+        <i class="fa-regular fa-pen-to-square" (click)="activar()" appEdit *ngIf="ruta == rutaActual"></i>
+        <img class="decorador-linea" src='\assets\img\decoracion\linea.png'><span class="texto-acerca">ACERCA DE MI</span>
+        <div class="fila-vacia"></div>
+
+        <div class="content-acerca">
+            <p class="descripcion-acerca">
+                
+                {{acerca.descripcion}}
+            </p>
+            <img [src]="acerca.fotourl">
+        </div>
+       
+        <div class="fila-vacia"></div>
+        
+    </div>
+    <aside class="columna-vacia"></aside>   
+</section>
+
+
+<div class="ventana-edit" *ngIf="estado">
+    <div  class="content-edit"  >
+        <i class="fa-solid fa-xmark" (click)="desactivar()" appPuntero></i>
+        <div class="formulario-acerca">
+           <form [formGroup]="form" (ngSubmit)="onUpdate($event)" novalidate class="form-edit-acerca">
+            <label for="descripcion" class="label-edit-acerca">Descripcion:</label>
+            <div class="textarea-edit-acerca">
+            <textarea cols="100" rows="10"  formControlName="descripcion" name="descripcion" placeholder="{{acerca.descripcion}}"></textarea>
+            <small>{{this.form.get('descripcion')?.value.length}}/255</small>
+            </div>
+            <div class="content-btn-edit-acerca">
+            <button type="submit" class="btn btn-dark" [disabled]="form.invalid">Guardar</button>
+            </div>
+           </form>
+        </div>
+    
+    </div>
+   
+</div>
+

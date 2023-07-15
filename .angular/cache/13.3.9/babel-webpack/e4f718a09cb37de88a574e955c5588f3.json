@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class Acercami {\n  constructor(descripcion, fotourl) {\n    this.descripcion = descripcion;\n    this.fotourl = fotourl;\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}

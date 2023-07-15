@@ -1,0 +1,152 @@
+<section class="educacion">
+    <aside class="columna-vacia"></aside>
+    <div class="cuerpo-edu">
+        <i class="fa-regular fa-pen-to-square" (click)="activar()" appEdit *ngIf="ruta == rutaActual"></i>
+        <img class="decorador-linea" src='assets\img\decoracion\linea.png'><span class="texto-edu">EDUCACION</span>
+        <div class="fila-vacia"></div>
+
+        
+        <div class="content-curso"  *ngFor="let curso of cursos ">
+           <div class="logo-instituto"><img [src]="curso.foto_curso"></div>
+           <div class="datos-curso">
+             <span class="nombre-instituto">{{curso.nombre_instituto_curso}}</span>
+             <span class="nombre-curso">{{curso.nombre_curso}}</span>
+               <!-- <p class="descripcion-curso">
+                        {{curso.descripcion_curso}}
+                </p>-->
+                <ul class="modulos-curso"> 
+                  <li class="modulo">{{curso.modulo1}}</li>
+                  <li class="modulo">{{curso.modulo2}}</li>
+                  <li class="modulo">{{curso.modulo3}}</li>
+                  <li class="modulo">{{curso.modulo4}}</li>
+                  <li class="modulo">{{curso.modulo5}}</li>
+                  <li class="modulo">{{curso.modulo6}}</li>
+                  <li class="modulo">{{curso.modulo7}}</li>
+                  <li class="modulo">{{curso.modulo8}}</li>
+                  <li class="modulo">{{curso.modulo9}}</li>
+                  <li class="modulo">{{curso.modulo10}}</li>
+                  <li class="modulo">{{curso.modulo11}}</li>
+                  <li class="modulo">{{curso.modulo12}}</li>
+                </ul>
+           </div>
+           
+          
+        </div>
+     
+        <div class="fila-vacia"></div>
+    </div>
+    <aside class="columna-vacia"></aside>
+</section>
+
+<div class="ventana-edit" *ngIf="estado">
+    <div  class="content-edit" >
+        <i class="fa-solid fa-xmark" (click)="desactivar()" appPuntero></i>
+
+        <div *ngFor="let curso of cursos ">
+            <div class="content-flex-cursos" *ngIf="onEdit && mostrar0 ==false">
+                    <div class="content-cursos-edit" >
+                        <span class="nombre-instituto-edit">Nombre Instituto: <span>{{curso.nombre_instituto_curso}}</span></span>
+                        <span class="nombre-curso-edit">Nombre curso: <span>{{curso.nombre_curso}}</span></span>
+                    </div>
+                    <div class="content-btn-edit">
+                        <button (click)="btnEdit(curso.id)" class="btn btn-dark">Editar</button>
+                        <button (click)="borrarCurso(curso.id)" class="btn btn-dark">Borrar</button>
+                    </div>
+            </div>
+
+            <div class="content-flex-cursos" *ngIf="curso.id == onForm">
+                <form (ngSubmit)="btnUpdate($event,curso.id)" novalidate class="form-curso-edit">
+                    <label for="nombre-instituto">Nombre del Instituto:</label>
+                    <input type="text" name="nombre_instituto_curso" [(ngModel)]="curso0.nombre_instituto_curso" id="nombre-instituto">
+                    <label for="nombre-curso">Nombre del Curso:</label>
+                    <input type="text" name="nombre_curso" [(ngModel)]="curso0.nombre_curso" id="nombre-curso">
+                    <label for="descripcion">Descripcion:</label>
+                    <textarea cols="100" rows="10"  [(ngModel)]="curso0.descripcion_curso" name="descripcion_curso" id="descripcion"></textarea>
+                    <label for="modulo1">Modulo 1:</label>
+                    <input type="text" name="modulo1" [(ngModel)]="curso0.modulo1" id="modulo1">
+                    <label for="modulo2">Modulo 2:</label>
+                    <input type="text" name="modulo2" [(ngModel)]="curso0.modulo2" id="modulo2">
+                    <label for="modulo3">Modulo 3:</label>
+                    <input type="text" name="modulo3" [(ngModel)]="curso0.modulo3" id="modulo3">
+                    <label for="modulo4">Modulo 4:</label>
+                    <input type="text" name="modulo4" [(ngModel)]="curso0.modulo4" id="modulo4">
+                    <label for="modulo5">Modulo 5:</label>
+                    <input type="text" name="modulo5" [(ngModel)]="curso0.modulo5" id="modulo5">
+                    <label for="modulo6">Modulo 6:</label>
+                    <input type="text" name="modulo6" [(ngModel)]="curso0.modulo6" id="modulo6">
+                    <label for="modulo7">Modulo 7:</label>
+                    <input type="text" name="modulo7" [(ngModel)]="curso0.modulo7" id="modulo7">
+                    <label for="modulo8">Modulo 8:</label>
+                    <input type="text" name="modulo8" [(ngModel)]="curso0.modulo8" id="modulo8">
+                    <label for="modulo9">Modulo 9:</label>
+                    <input type="text" name="modulo9" [(ngModel)]="curso0.modulo9" id="modulo9">
+                    <label for="modulo10">Modulo 10:</label>
+                    <input type="text" name="modulo10" [(ngModel)]="curso0.modulo10" id="modulo10">
+                    <label for="modulo11">Modulo 11:</label>
+                    <input type="text" name="modulo11" [(ngModel)]="curso0.modulo11" id="modulo11">
+                    <label for="modulo12">Modulo 12:</label>
+                    <input type="text" name="modulo12" [(ngModel)]="curso0.modulo12" id="modulo12">
+                    
+                    <div class="content-btn-costado">
+                    <button type="submit" class="btn btn-dark">Actualizar</button>
+                    </div>
+                </form>
+            </div>
+        
+        </div>
+
+        
+            <div class="content-crear" *ngIf="mostrar0 == false && onEdit==true">
+                <span class="span-anadir">Añadir curso</span>
+        
+                <div class="btn-crear">
+                    <i class="fa-regular fa-square-plus" (click)="mostrar()" appPuntero></i>
+                </div>
+            </div>
+
+            <div class="content-crear" *ngIf="mostrar0 && onEdit==true">
+                <form (ngSubmit)="crearCurso()" novalidate class="form-curso-edit">
+                    <label for="nombre-instituto">Nombre del Instituto:</label>
+                    <input type="text" name="nombre_instituto_curso" [(ngModel)]="nombre_instituto_curso" id="nombre-instituto">
+                    <label for="nombre-curso">Nombre del Curso:</label>
+                    <input type="text" name="nombre_curso" [(ngModel)]="nombre_curso" id="nombre-curso">
+                    <label for="descripcion">Descripcion:</label>
+                    <textarea cols="100" rows="10"  [(ngModel)]="descripcion_curso" name="descripcion_curso" id="descripcion"></textarea>
+                    <label for="modulo1">Modulo 1:</label>
+                    <input type="text" name="modulo1" [(ngModel)]="modulo1" id="modulo1">
+                    <label for="modulo2">Modulo 2:</label>
+                    <input type="text" name="modulo2" [(ngModel)]="modulo2" id="modulo2">
+                    <label for="modulo3">Modulo 3:</label>
+                    <input type="text" name="modulo3" [(ngModel)]="modulo3" id="modulo3">
+                    <label for="modulo4">Modulo 4:</label>
+                    <input type="text" name="modulo4" [(ngModel)]="modulo4" id="modulo4">
+                    <label for="modulo5">Modulo 5:</label>
+                    <input type="text" name="modulo5" [(ngModel)]="modulo5" id="modulo5">
+                    <label for="modulo6">Modulo 6:</label>
+                    <input type="text" name="modulo6" [(ngModel)]="modulo6" id="modulo6">
+                    <label for="modulo7">Modulo 7:</label>
+                    <input type="text" name="modulo7" [(ngModel)]="modulo7" id="modulo7">
+                    <label for="modulo8">Modulo 8:</label>
+                    <input type="text" name="modulo8" [(ngModel)]="modulo8" id="modulo8">
+                    <label for="modulo9">Modulo 9:</label>
+                    <input type="text" name="modulo9" [(ngModel)]="modulo9" id="modulo9">
+                    <label for="modulo10">Modulo 10:</label>
+                    <input type="text" name="modulo10" [(ngModel)]="modulo10" id="modulo10">
+                    <label for="modulo11">Modulo 11:</label>
+                    <input type="text" name="modulo11" [(ngModel)]="modulo11" id="modulo11">
+                    <label for="modulo12">Modulo 12:</label>
+                    <input type="text" name="modulo12" [(ngModel)]="modulo12" id="modulo12">
+                    
+                    <div class="content-btn-costado">
+                    <button type="submit" class="btn btn-dark">Añadir curso</button>
+                    </div>
+                </form>
+            </div>
+
+       
+        
+        
+       
+    </div>
+   
+</div>

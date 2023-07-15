@@ -1,0 +1,81 @@
+<section class="proyectos">
+    <aside class="columna-vacia"></aside>
+    <div class="cuerpo-proyectos">
+        <i class="fa-regular fa-pen-to-square" (click)="activar()" appEdit *ngIf="ruta == rutaActual" ></i>
+    <img class="decorador-linea" src='assets\img\decoracion\linea.png'><span class="texto-proyectos">PROYECTOS</span>
+    <div class="fila-vacia"></div>
+
+    <div class="content-proyectos" *ngFor="let proyecto of proyectos">
+        <span class="proyecto">{{proyecto.nombre}}</span>
+        <img [src]="proyecto.fotourl">
+        <a class="enlace-proyecto" >{{proyecto.url}}</a>
+        <p class="descripcion-proyecto">{{proyecto.descripcion}}</p>
+    </div>
+    
+    <div class="fila-vacia"></div>
+    </div>
+   
+</section>
+
+<div class="ventana-edit" *ngIf="estado">
+    <div class="content-edit">
+        <i class="fa-solid fa-xmark" (click)="desactivar()" appPuntero></i>
+
+        <div *ngFor="let proyecto of proyectos"> 
+
+                <div class="content-flex-cursos" *ngIf="onEdit && mostrar0 ==false">
+                    <div class="content-cursos-edit" >
+                        <span class="proyecto-edit">Proyecto: <span>{{proyecto.nombre}}</span></span>
+                        
+                    </div>
+                    <div class="content-btn-edit">
+                        <button (click)="btnEdit(proyecto.id)" class="btn btn-dark">Editar</button>
+                        <button (click)="borrarProyecto(proyecto.id)" class="btn btn-dark">Borrar</button>
+                    </div>
+                </div>   
+                <div class="content-flex-cursos" *ngIf="proyecto.id == onForm">
+                    <form (ngSubmit)="btnUpdate($event,proyecto.id)" novalidate class="form-curso-edit">
+                        <label for="proyecto">Nombre del proyecto:</label>
+                        <input type="text" name="empresa" [(ngModel)]="proyecto0.nombre" id="proyecto">
+                        <label for="descripcion">Descripcion:</label>
+                        <textarea cols="100" rows="10"  [(ngModel)]="proyecto0.descripcion" name="descripcion" id="descripcion"></textarea>
+                        <label for="url">Url:</label>
+                        <input type="text" name="url" [(ngModel)]="proyecto0.url" id="url">
+                        
+                        <div class="content-btn-costado">
+                        <button type="submit" class="btn btn-dark">Actualizar</button>
+                        </div>
+                    </form>
+                </div>
+
+            
+        </div>
+
+       
+            <div class="content-crear" *ngIf="mostrar0 == false && onEdit==true">
+                <span class="span-anadir">Anadir proyecto</span>
+        
+                <div class="btn-crear">
+                    <i class="fa-regular fa-square-plus" (click)="mostrar()" appPuntero></i>
+                </div>
+            </div>
+
+            <div class="content-crear" *ngIf="mostrar0 && onEdit==true">
+                <form (ngSubmit)="crearProyecto()" novalidate class="form-curso-edit">
+                    <label for="proyecto">Nombre del proyecto:</label>
+                    <input type="text" name="empresa" [(ngModel)]="nombre" id="proyecto">
+                    <label for="descripcion">Descripcion:</label>
+                    <textarea cols="100" rows="10"  [(ngModel)]="descripcion" name="descripcion" id="descripcion"></textarea>
+                    <label for="url">Url:</label>
+                    <input type="text" name="url" [(ngModel)]="url" id="url">
+                    
+                    <div class="content-btn-costado">
+                    <button type="submit" class="btn btn-dark">Anadir proyecto</button>
+                    </div>
+                </form>
+            </div>
+
+        
+    </div>
+
+</div>

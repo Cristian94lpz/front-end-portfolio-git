@@ -1,0 +1,33 @@
+{
+    "acerca" : {
+        "descripcion" :"Hola mi nombre es Cristian, soy desarrollador Web FullStack Jr, de Mendoza ,Argentina. Sigo la tendencia de diseño de páginas web con interfazes accesibles, graficamente claras, funcionales, practicas y faciles de usar.\nEstoy continuamente aprendiendo y adquiriendo nuevas habilidades para mejorar mi performance de desarrollo web. Puede comunicarse conmigo por medio del número que aparece en el menú de cabecera.",
+        "imgYo": "\\assets\\img\\logo\\imagen-mia.jpg"
+    },
+     "experiencia" : {
+        "imgEmpresa": "\\assets\\img\\logo\\logo-company.jpg",
+        "puesto": "Fullstack Developer",
+        "empresa": "Company",
+        "inicio": 2020 ,
+        "fin": 2022
+     },
+     "educacion" : {
+        "curso": "Argentina Programa",
+        "modulos" : ["#SeProgramar","#YoProgramo"]
+     },
+     "habilidades" : {
+        "blandas": ["\\assets\\img\\skills\\hab-trabajo-equipo.png","\\assets\\img\\skills\\hab-pensamiento-critico.png","\\assets\\img\\skills\\hab-comunicacion-asertiva.png",
+        "\\assets\\img\\skills\\hab-escucha-activa.png","\\assets\\img\\skills\\hab-adaptacion-cambio.png","\\assets\\img\\skills\\hab-creatividad.png",
+        "\\assets\\img\\skills\\hab-resolver-problemas.png","\\assets\\img\\skills\\hab-respeto-opiniones.png"],
+        "duras" : ["\\assets\\img\\skills\\hab-angular.png","\\assets\\img\\skills\\hab-visual-studio.png","\\assets\\img\\skills\\hab-consola-npm.png",
+        "\\assets\\img\\skills\\hab-mysql.png","\\assets\\img\\skills\\hab-sql.png","\\assets\\img\\skills\\hab-php.png","\\assets\\img\\skills\\hab-phpmyadm.png",
+        "\\assets\\img\\skills\\hab-html.png","\\assets\\img\\skills\\hab-css.png","\\assets\\img\\skills\\hab-javascript.png","\\assets\\img\\skills\\hab-typescript.png",
+        "\\assets\\img\\skills\\hab-git-hub.png","\\assets\\img\\skills\\hab-adobe.png"]
+     },
+
+    "proyecto" : {
+        "nombre": "CARPINTERIA CRISTIAN",
+        "imgImpresion": "\\assets\\img\\logo\\impresion-pagina.jpg",
+        "enlace": "https://google.com.ar",
+        "descripcion": "Descripcion proyecto "
+    }
+}
